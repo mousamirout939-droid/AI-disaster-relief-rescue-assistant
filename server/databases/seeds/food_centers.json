@@ -1,0 +1,3 @@
+[
+  {"name": "Central Food Distribution Point", "location": {"type": "Point", "coordinates": [77.595, 12.965]}, "meals_per_day": 500, "active": true}
+]

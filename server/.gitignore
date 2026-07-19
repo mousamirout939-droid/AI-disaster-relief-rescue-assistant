@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Uploads / generated data
+uploads/
+outputs/
+backups/
+logs/
+*.log
+
+# Models & datasets (large binaries — track via releases / external storage instead)
+weights/*.pt
+checkpoints/*.pt
+ml/models/*.pkl
+!ml/models/.gitkeep
+datasets/
+raw_images/
+processed_images/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,8 @@
+.sosbutton {
+  @apply fixed bottom-5 left-5 z-50 flex items-center gap-2 rounded-full bg-red-600 px-4 py-3
+         font-bold text-white shadow-lg animate-pulse-slow transition hover:bg-red-700
+         disabled:cursor-not-allowed disabled:opacity-70;
+}
+.sosbutton__label {
+  @apply text-sm tracking-wide;
+}

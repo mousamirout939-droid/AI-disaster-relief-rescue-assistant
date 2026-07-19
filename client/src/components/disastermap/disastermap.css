@@ -1,0 +1,10 @@
+.disastermap {
+  @apply w-full rounded-xl border border-gray-200 dark:border-gray-800;
+}
+.disastermap__fallback {
+  @apply flex w-full flex-col justify-center rounded-xl border border-dashed border-gray-300
+         dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-6 text-sm text-gray-500 dark:text-gray-400;
+}
+.disastermap__list {
+  @apply grid grid-cols-1 gap-1 sm:grid-cols-2;
+}

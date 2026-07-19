@@ -1,0 +1,20 @@
+.sidebar {
+  @apply fixed inset-y-0 left-0 z-50 w-64 -translate-x-full border-r border-gray-200 dark:border-gray-800
+         bg-white dark:bg-gray-950 transition-transform duration-200 lg:static lg:z-0 lg:translate-x-0;
+}
+.sidebar--open {
+  @apply translate-x-0;
+}
+.sidebar__overlay {
+  @apply fixed inset-0 z-40 bg-black/40;
+}
+.sidebar__nav {
+  @apply flex flex-col gap-1 px-3 py-4;
+}
+.sidebar__link {
+  @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-300
+         hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+.sidebar__link--active {
+  @apply bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300;
+}

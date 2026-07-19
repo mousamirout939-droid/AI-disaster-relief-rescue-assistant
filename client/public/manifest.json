@@ -1,0 +1,13 @@
+{
+  "name": "AI Disaster Relief & Rescue Assistant",
+  "short_name": "Disaster Relief",
+  "description": "AI-powered disaster relief, rescue coordination, and emergency response platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e51f1f",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

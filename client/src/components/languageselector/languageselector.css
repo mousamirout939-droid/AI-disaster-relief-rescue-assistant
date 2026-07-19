@@ -1,0 +1,6 @@
+.languageselector {
+  @apply flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+.languageselector select {
+  @apply cursor-pointer border-none bg-transparent text-sm text-gray-700 dark:text-gray-200 outline-none;
+}

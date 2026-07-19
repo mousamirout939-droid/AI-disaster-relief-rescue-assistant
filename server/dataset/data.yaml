@@ -1,0 +1,19 @@
+# YOLOv8 dataset configuration.
+# Populate train/valid/test with images + YOLO-format label .txt files before training.
+# See datasets/README.md for the expected directory layout.
+
+path: .            # dataset root (relative to this file)
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 8
+names:
+  0: fire
+  1: flood
+  2: earthquake_damage
+  3: cyclone_damage
+  4: landslide
+  5: building_collapse
+  6: debris
+  7: flooded_road

@@ -1,0 +1,30 @@
+# --- Python / backend ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+server/logs/
+server/backups/
+server/outputs/
+server/uploads/
+server/.env
+
+# --- Node / frontend ---
+node_modules/
+client/dist/
+client/.vite/
+client/.env
+
+# --- ML artifacts (large binaries; fetch/train separately) ---
+server/weights/*.pt
+server/checkpoints/*.pt
+server/ml/models/*.pkl
+!server/weights/.gitkeep
+!server/ml/models/.gitkeep
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
+*.swp

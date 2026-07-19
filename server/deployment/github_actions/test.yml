@@ -1,0 +1,11 @@
+name: Full Test Suite
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"  # nightly
+
+jobs:
+  backend-tests:
+    uses: ./.github/workflows/backend-ci.yml
+  frontend-build:
+    uses: ./.github/workflows/frontend-ci.yml

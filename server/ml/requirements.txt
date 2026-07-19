@@ -1,0 +1,4 @@
+# Subset of server/requirements.txt needed to run ml/ standalone (e.g. in a notebook).
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1

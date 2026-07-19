@@ -1,0 +1,3 @@
+[
+  {"name": "St. Mary's Emergency Hospital", "location": {"type": "Point", "coordinates": [77.6101, 12.9698]}, "address": "Indiranagar, Bengaluru", "contact_number": "+914444444444", "beds_available": 15, "specialities": ["trauma", "cardiology"], "is_emergency_capable": true}
+]

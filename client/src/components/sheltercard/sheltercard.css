@@ -1,0 +1,35 @@
+.sheltercard {
+  @apply card flex gap-3;
+}
+.sheltercard__icon {
+  @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-safe-100 text-safe-700
+         dark:bg-safe-900/40 dark:text-safe-300;
+}
+.sheltercard__title {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+.sheltercard__status {
+  @apply shrink-0 rounded-full bg-safe-100 px-2.5 py-0.5 text-xs font-semibold text-safe-800
+         dark:bg-safe-900/40 dark:text-safe-300;
+}
+.sheltercard__status--full {
+  @apply bg-primary-100 text-primary-800 dark:bg-primary-900/40 dark:text-primary-300;
+}
+.sheltercard__address {
+  @apply mt-0.5 text-sm text-gray-500 dark:text-gray-400;
+}
+.sheltercard__meta {
+  @apply mt-2 flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-400;
+}
+.sheltercard__tags {
+  @apply mt-2 flex flex-wrap gap-1.5;
+}
+.sheltercard__tag {
+  @apply rounded-full bg-gray-100 dark:bg-gray-800 px-2 py-0.5 text-[11px] font-medium text-gray-600 dark:text-gray-300;
+}
+.sheltercard--clickable {
+  @apply cursor-pointer transition hover:border-safe-400 hover:shadow-md;
+}
+.sheltercard--selected {
+  @apply border-safe-500 ring-2 ring-safe-500/30 dark:border-safe-400;
+}

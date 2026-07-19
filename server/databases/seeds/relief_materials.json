@@ -1,0 +1,4 @@
+[
+  {"category": "blankets", "quantity_available": 500, "warehouse": "North Depot"},
+  {"category": "drinking_water_liters", "quantity_available": 10000, "warehouse": "North Depot"}
+]

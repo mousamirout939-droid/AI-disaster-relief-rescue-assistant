@@ -1,0 +1,11 @@
+# NOTE: filename "configmaop.yaml" preserved from the original project skeleton
+# (likely a typo for "configmap.yaml") — the content below is a valid ConfigMap.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: disaster-relief-config
+data:
+  MONGODB_DB_NAME: "disaster_relief_db"
+  ENV: "production"
+  DEBUG: "false"
+  CORS_ORIGINS: '["https://your-frontend.vercel.app"]'

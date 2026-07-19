@@ -1,0 +1,3 @@
+[
+  {"name": "Community Medical Camp - Sector 4", "location": {"type": "Point", "coordinates": [77.60, 12.96]}, "services": ["first_aid", "vaccination"], "active": true}
+]

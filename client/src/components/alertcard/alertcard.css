@@ -1,0 +1,19 @@
+.alertcard {
+  @apply card flex gap-3 border-l-4 border-l-primary-500;
+}
+.alertcard__icon {
+  @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600
+         dark:bg-primary-900/40 dark:text-primary-300;
+}
+.alertcard__title {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+.alertcard__badge {
+  @apply shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+}
+.alertcard__message {
+  @apply mt-1 text-sm text-gray-600 dark:text-gray-300;
+}
+.alertcard__meta {
+  @apply mt-2 flex gap-3 text-xs text-gray-400;
+}

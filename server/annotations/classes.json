@@ -1,0 +1,10 @@
+{
+  "0": "fire",
+  "1": "flood",
+  "2": "earthquake_damage",
+  "3": "cyclone_damage",
+  "4": "landslide",
+  "5": "building_collapse",
+  "6": "debris",
+  "7": "flooded_road"
+}

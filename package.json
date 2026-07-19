@@ -1,0 +1,21 @@
+{
+  "name": "ai-disaster-relief-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-powered disaster relief, rescue coordination, and emergency response platform.",
+  "scripts": {
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && pip install -r requirements.txt",
+    "install:all": "npm run install:client && npm run install:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && python run.py",
+    "build:client": "cd client && npm run build",
+    "test:server": "cd server && pytest",
+    "seed": "cd server && python scripts/seed_database.py"
+  },
+  "engines": {
+    "node": ">=18",
+    "python": ">=3.11"
+  },
+  "license": "MIT"
+}

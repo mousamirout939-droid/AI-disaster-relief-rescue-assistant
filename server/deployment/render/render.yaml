@@ -1,0 +1,7 @@
+# Duplicate of server/render.yaml, kept for deployment/ folder self-containment.
+services:
+  - type: web
+    name: disaster-relief-api
+    env: docker
+    dockerfilePath: ../../server/dockerfile
+    healthCheckPath: /health

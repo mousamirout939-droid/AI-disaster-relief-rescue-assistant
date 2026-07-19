@@ -1,0 +1,8 @@
+fire
+flood
+earthquake_damage
+cyclone_damage
+landslide
+building_collapse
+debris
+flooded_road

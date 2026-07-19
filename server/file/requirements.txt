@@ -1,0 +1,2 @@
+# See server/requirements.txt — the AI dependencies (ultralytics, opencv, numpy) live there.
+-r ../requirements.txt

@@ -1,0 +1,28 @@
+.rescueteamcard {
+  @apply card flex gap-3;
+}
+.rescueteamcard__icon {
+  @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple-700
+         dark:bg-purple-900/40 dark:text-purple-300;
+}
+.rescueteamcard__title {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+.rescueteamcard__spec {
+  @apply text-sm capitalize text-gray-500 dark:text-gray-400;
+}
+.rescueteamcard__status {
+  @apply shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize;
+}
+.rescueteamcard__status--available {
+  @apply bg-safe-100 text-safe-800 dark:bg-safe-900/40 dark:text-safe-300;
+}
+.rescueteamcard__status--dispatched {
+  @apply bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-300;
+}
+.rescueteamcard__status--offduty {
+  @apply bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400;
+}
+.rescueteamcard__meta {
+  @apply mt-2 flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-400;
+}

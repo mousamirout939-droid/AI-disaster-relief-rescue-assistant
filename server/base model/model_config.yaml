@@ -1,0 +1,7 @@
+# Base model configuration for fine-tuning YOLOv8 on disaster imagery.
+base_model: yolov8n.pt   # nano — swap for yolov8s.pt/yolov8m.pt for higher accuracy at more compute cost
+image_size: 640
+batch_size: 16
+epochs: 50
+optimizer: auto
+learning_rate: 0.01
