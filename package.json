@@ -11,7 +11,8 @@
     "dev:server": "cd server && python run.py",
     "build:client": "cd client && npm run build",
     "test:server": "cd server && pytest",
-    "seed": "cd server && python scripts/seed_database.py"
+    "seed": "cd server && python scripts/seed_database.py",
+    "build": "vite build"
   },
   "engines": {
     "node": ">=18",
@@ -19,3 +20,5 @@
   },
   "license": "MIT"
 }
+
+  
