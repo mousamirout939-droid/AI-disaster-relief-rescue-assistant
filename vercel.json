@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ai-disaster-relief-rescue-assistant.onrender.com/api/:path*"
+    }
+  ]
+}
