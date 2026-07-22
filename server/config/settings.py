@@ -20,20 +20,19 @@ class Settings(BaseSettings):
     # --- Security / JWT ---
     JWT_SECRET_KEY: str = "change-this-secret-in-production"
     JWT_ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24        # 1 day
-    REFRESH_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7    # 7 days
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24
+    REFRESH_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
 
     # --- MongoDB ---
     MONGODB_URI: str = "mongodb://localhost:27017"
     MONGODB_DB_NAME: str = "disaster_relief_db"
 
     # --- CORS ---
-    # Allowing local development and wildcard/explicit Vercel URLs to prevent CORS blockages
     CORS_ORIGINS: List[str] = [
-        "http://localhost:5173", 
+        "http://localhost:5173",
         "http://localhost:3000",
         "https://ai-disaster-relief-rescue-assistant.vercel.app",
-        "*"
+        "https://ai-disaster-relief-rescue-assistant-6b68ctm1-mousami.vercel.app",
     ]
 
     # --- Third-party APIs ---
@@ -61,12 +60,15 @@ class Settings(BaseSettings):
     RATE_LIMIT_REQUESTS: int = 100
     RATE_LIMIT_WINDOW_SECONDS: int = 60
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
 
 @lru_cache
 def get_settings() -> "Settings":
-    """Cached settings instance so we parse the environment only once."""
     return Settings()
 
 
