@@ -28,7 +28,13 @@ class Settings(BaseSettings):
     MONGODB_DB_NAME: str = "disaster_relief_db"
 
     # --- CORS ---
-    CORS_ORIGINS: List[str] = ["http://localhost:5173", "http://localhost:3000"]
+    # Allowing local development and wildcard/explicit Vercel URLs to prevent CORS blockages
+    CORS_ORIGINS: List[str] = [
+        "http://localhost:5173", 
+        "http://localhost:3000",
+        "https://ai-disaster-relief-rescue-assistant.vercel.app",
+        "*"
+    ]
 
     # --- Third-party APIs ---
     GEMINI_API_KEY: str = ""
