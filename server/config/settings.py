@@ -2,6 +2,7 @@
 Application-wide configuration loaded from environment variables.
 Uses pydantic-settings so values are validated once at startup.
 """
+
 from functools import lru_cache
 from typing import List
 
@@ -9,7 +10,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    # --- App ---
+    # ---------- App ----------
     APP_NAME: str = "AI Disaster Relief & Rescue Assistant"
     ENV: str = "development"
     DEBUG: bool = True
@@ -17,46 +18,58 @@ class Settings(BaseSettings):
     HOST: str = "0.0.0.0"
     PORT: int = 8000
 
-    # --- Security / JWT ---
+    # ---------- Security ----------
     JWT_SECRET_KEY: str = "change-this-secret-in-production"
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24
     REFRESH_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
 
-    # --- MongoDB ---
+    # ---------- MongoDB ----------
     MONGODB_URI: str = "mongodb://localhost:27017"
     MONGODB_DB_NAME: str = "disaster_relief_db"
 
-    # --- CORS ---
+    # ---------- CORS ----------
     CORS_ORIGINS: List[str] = [
         "http://localhost:5173",
         "http://localhost:3000",
+
+        # Production
         "https://ai-disaster-relief-rescue-assistant.vercel.app",
-        "https://ai-disaster-relief-rescue-assistant-6b68ctm1-mousami.vercel.app",
+
+        # Preview
+        "https://ai-disaster-relief-rescue-assistant-git-main-mousami.vercel.app",
+
+        # Current deployment
+        "https://ai-disaster-relief-rescue-assistant-b5x7oa1db-mousami.vercel.app",
     ]
 
-    # --- Third-party APIs ---
+    # ---------- API Keys ----------
     GEMINI_API_KEY: str = ""
     GOOGLE_MAPS_API_KEY: str = ""
     OPENWEATHER_API_KEY: str = ""
 
-    # --- Email (SMTP) ---
+    # ---------- Email ----------
     SMTP_HOST: str = ""
     SMTP_PORT: int = 587
     SMTP_USER: str = ""
     SMTP_PASSWORD: str = ""
     EMAIL_FROM: str = "no-reply@disaster-relief.app"
 
-    # --- File uploads ---
+    # ---------- Uploads ----------
     UPLOAD_DIR: str = "uploads"
     MAX_UPLOAD_SIZE_MB: int = 10
-    ALLOWED_IMAGE_EXTENSIONS: List[str] = [".jpg", ".jpeg", ".png", ".webp"]
+    ALLOWED_IMAGE_EXTENSIONS: List[str] = [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+    ]
 
-    # --- AI / YOLO ---
+    # ---------- AI ----------
     YOLO_WEIGHTS_PATH: str = "weights/best.pt"
     YOLO_CONFIDENCE_THRESHOLD: float = 0.35
 
-    # --- Rate limiting ---
+    # ---------- Rate Limiter ----------
     RATE_LIMIT_REQUESTS: int = 100
     RATE_LIMIT_WINDOW_SECONDS: int = 60
 
@@ -68,7 +81,7 @@ class Settings(BaseSettings):
 
 
 @lru_cache
-def get_settings() -> "Settings":
+def get_settings() -> Settings:
     return Settings()
 
 
