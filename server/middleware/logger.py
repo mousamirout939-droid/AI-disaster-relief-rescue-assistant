@@ -1,44 +1,30 @@
 """
-Simple in-memory sliding-window rate limiter middleware.
-Skips OPTIONS requests so CORS preflight always succeeds.
+Request logging middleware.
+Logs every request with method, path, status code, and response time.
 """
+
 import time
-from collections import defaultdict
 
 from fastapi import Request
 from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.responses import JSONResponse
+
+from config.logging import logger
 
 
-from config.settings import settings
-
-
-class RateLimiterMiddleware(BaseHTTPMiddleware):
-    def __init__(self, app):
-        super().__init__(app)
-        self._hits = defaultdict(list)
-
+class RequestLoggingMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
-        # IMPORTANT: Never rate-limit CORS preflight requests
-        if request.method == "OPTIONS":
-            return await call_next(request)
+        start_time = time.perf_counter()
 
-        client_ip = request.client.host if request.client else "unknown"
+        response = await call_next(request)
 
-        now = time.time()
-        window_start = now - settings.RATE_LIMIT_WINDOW_SECONDS
+        duration_ms = (time.perf_counter() - start_time) * 1000
 
-        hits = [t for t in self._hits[client_ip] if t > window_start]
-        hits.append(now)
-        self._hits[client_ip] = hits
+        logger.info(
+            "%s %s -> %s (%.2f ms)",
+            request.method,
+            request.url.path,
+            response.status_code,
+            duration_ms,
+        )
 
-        if len(hits) > settings.RATE_LIMIT_REQUESTS:
-            return JSONResponse(
-                status_code=429,
-                content={
-                    "success": False,
-                    "message": "Too many requests. Please slow down."
-                },
-            )
-
-        return await call_next(request)
+        return response

@@ -1,7 +1,8 @@
 """
 Simple in-memory sliding-window rate limiter middleware.
-Good enough for a single-process demo deployment; swap for Redis in production.
+Skips OPTIONS requests so CORS preflight always succeeds.
 """
+
 import time
 from collections import defaultdict
 
@@ -15,10 +16,14 @@ from config.settings import settings
 class RateLimiterMiddleware(BaseHTTPMiddleware):
     def __init__(self, app):
         super().__init__(app)
-        self._hits: dict[str, list[float]] = defaultdict(list)
+        self._hits = defaultdict(list)
 
     async def dispatch(self, request: Request, call_next):
+        if request.method == "OPTIONS":
+            return await call_next(request)
+
         client_ip = request.client.host if request.client else "unknown"
+
         now = time.time()
         window_start = now - settings.RATE_LIMIT_WINDOW_SECONDS
 
@@ -29,7 +34,10 @@ class RateLimiterMiddleware(BaseHTTPMiddleware):
         if len(hits) > settings.RATE_LIMIT_REQUESTS:
             return JSONResponse(
                 status_code=429,
-                content={"success": False, "message": "Too many requests. Please slow down."},
+                content={
+                    "success": False,
+                    "message": "Too many requests. Please slow down."
+                },
             )
 
         return await call_next(request)
