@@ -43,6 +43,7 @@ app = FastAPI(
 )
 
 setup_cors(app)
+print("CORS ORIGINS:", settings.CORS_ORIGINS)
 app.add_middleware(RequestLoggingMiddleware)
 app.add_middleware(RateLimiterMiddleware)
 register_exception_handlers(app)
